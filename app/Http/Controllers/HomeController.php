@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,9 +23,21 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        dd(Auth::user());
-        return view('home');
+        $accessToken = $this->token($request->user());
+        
+        return view('layouts.app')->with([
+            'accessToken'=>$accessToken
+        ]);
+    }
+
+    private function token(User $user):string
+    {
+        $resultToken = $user->createToken('Personal Access Token');
+        $token = $resultToken->token;
+        
+        $token->save();
+        return $resultToken->accessToken;
     }
 }

@@ -4,5 +4,11 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.exclude": {
+			"**/.idea": true,
+			"**/.vscode": true,
+			"**/node_modules": true,
+		}
+	}
 }

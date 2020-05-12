@@ -1,5 +1,15 @@
 @import '~vuetify/dist/vuetify.css';
 
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+// Variables
+@import 'variables';
+
+.v-application{
+    font-family: $font-family-sans-serif;
+}
+
 .header{
     display: flex;
     flex-direction: row;

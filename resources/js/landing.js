@@ -1,13 +1,15 @@
 window.Vue = require('vue');
-import Vuetify from "vuetify";
-const vuetify = new Vuetify();
+import vuetify from '../plugins/vuetify';
+import Vuelidate from 'vuelidate';
+const VueInputMask = require('vue-inputmask').default;
+import Axios from 'axios';
 
-Vue.use(Vuetify);
-import LandingComponent from "./components/LandingComponent";
+Vue.prototype.$http = Axios;
 
-const landing = new Vue({
-    vuetify,
-    components:{
-        LandingComponent
-    }
+Vue.use(VueInputMask);
+Vue.use(Vuelidate);
+Vue.component('landing-component', require('./components/Layouts/LandingComponent').default);
+
+new Vue({
+  vuetify,
 }).$mount('#landing');

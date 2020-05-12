@@ -1,9 +1,35 @@
 window.Vue = require('vue');
-import Vuetify from "vuetify";
-const vuetify = new Vuetify();
+import Vuex from 'vuex';
+import VueRouter from 'vue-router';
+import vuetify from '../plugins/vuetify';
+import Vuelidate from 'vuelidate';
+import VuetifyToast from 'vuetify-toast-snackbar';
+import Axios from 'axios';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import routes from './router';
+import apiKey from '../plugins/apiKey';
 
-const app = new Vue({
-    vuetify,
+const apiHost = `http://${window.location.hostname}/api`;
+Vue.prototype.$http = Axios;
+Vue.prototype.$apiKey = apiKey;
+Vue.prototype.$host = apiHost;
+
+Vue.prototype.$http.defaults.headers.common['Authorization'] = `Bearer ${Vue.prototype.$apiKey}`;
+
+Vue.use(Vuex);
+Vue.use(VueRouter);
+Vue.use(Vuelidate);
+Vue.use(VuetifyToast, {
+  x: 'center',
+  y: 'top',
+});
+Vue.component('crm-layout', require('./components/Layouts/CrmLayout').default);
+
+const router = new VueRouter({
+  routes, mode: 'history',
+});
+
+new Vue({
+  router,
+  vuetify,
 }).$mount('#app');
