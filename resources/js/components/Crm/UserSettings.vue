@@ -1,7 +1,17 @@
 <template>
-  <v-card>
-    {{ userInfo }}
-  </v-card>
+  <div>
+    <v-card class="mb-12">
+      <div v-for="(data, index) in userInfo" :key="index">
+        {{ index }}: {{ data }}
+      </div>
+    </v-card>
+
+    <v-card>
+      <div v-for="(data, index) in userInfo.workshop" :key="index">
+        {{ index }}: {{ data }}
+      </div>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -15,11 +25,6 @@ export default {
       this.userInfo = res.data;
     });
   },
-  //   methods: {
-  //     getUserData() {
-
-//     },
-//   },
 };
 </script>
 

@@ -2104,6 +2104,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'UserSettings',
   data: function data() {
@@ -2117,11 +2127,7 @@ __webpack_require__.r(__webpack_exports__);
     this.$http.get("".concat(this.$host, "/user")).then(function (res) {
       _this.userInfo = res.data;
     });
-  } //   methods: {
-  //     getUserData() {
-  //     },
-  //   },
-
+  }
 });
 
 /***/ }),
@@ -5219,7 +5225,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-card", [_vm._v("\n  " + _vm._s(_vm.userInfo) + "\n")])
+  return _c(
+    "div",
+    [
+      _c(
+        "v-card",
+        { staticClass: "mb-12" },
+        _vm._l(_vm.userInfo, function(data, index) {
+          return _c("div", { key: index }, [
+            _vm._v("\n      " + _vm._s(index) + ": " + _vm._s(data) + "\n    ")
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "v-card",
+        _vm._l(_vm.userInfo.workshop, function(data, index) {
+          return _c("div", { key: index }, [
+            _vm._v("\n      " + _vm._s(index) + ": " + _vm._s(data) + "\n    ")
+          ])
+        }),
+        0
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

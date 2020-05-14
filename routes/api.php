@@ -31,5 +31,6 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group([
     'middleware'=> 'auth:api'
 ],function () {
-    Route::get('/user', 'Api\Crm\DashboardController@index');
+    Route::get('/dashboard', 'Api\Crm\DashboardController@index');
+    Route::get('/settings', 'Api\Crm\SettingsController@index');
 });

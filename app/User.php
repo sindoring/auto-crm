@@ -42,6 +42,9 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
+    
+    protected $primaryKey = 'userID';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -57,7 +60,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'created_at', 'updated_at', 'email_verified_at'
     ];
 
     /**
@@ -70,6 +73,15 @@ class User extends Authenticatable
     ];
 
     public function workshop(){
-        
+        return $this->hasOne('App\Workshops', 'userID', 'userID');
     }
+
+    public function employee(){
+        return $this->hasOne('App\Employees', 'userID', 'userID');
+    }
+
+    public function role(){
+        return $this->employee->role(); 
+    }
+
 }
