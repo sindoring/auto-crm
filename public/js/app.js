@@ -2108,12 +2108,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'UserSettings',
   data: function data() {
@@ -2124,7 +2118,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.$http.get("".concat(this.$host, "/user")).then(function (res) {
+    this.$http.get("".concat(this.$host, "/settings")).then(function (res) {
       _this.userInfo = res.data;
     });
   }
@@ -5232,16 +5226,6 @@ var render = function() {
         "v-card",
         { staticClass: "mb-12" },
         _vm._l(_vm.userInfo, function(data, index) {
-          return _c("div", { key: index }, [
-            _vm._v("\n      " + _vm._s(index) + ": " + _vm._s(data) + "\n    ")
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c(
-        "v-card",
-        _vm._l(_vm.userInfo.workshop, function(data, index) {
           return _c("div", { key: index }, [
             _vm._v("\n      " + _vm._s(index) + ": " + _vm._s(data) + "\n    ")
           ])
@@ -63630,9 +63614,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 var apiHost = "http://".concat(window.location.hostname, "/api");
 Vue.prototype.$http = axios__WEBPACK_IMPORTED_MODULE_5___default.a;
-Vue.prototype.$apiKey = _plugins_apiKey__WEBPACK_IMPORTED_MODULE_7__["default"];
 Vue.prototype.$host = apiHost;
-Vue.prototype.$http.defaults.headers.common['Authorization'] = "Bearer ".concat(Vue.prototype.$apiKey);
+Vue.prototype.$http.defaults.headers.common['Authorization'] = "Bearer ".concat(_plugins_apiKey__WEBPACK_IMPORTED_MODULE_7__["default"]);
 Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 Vue.use(vuelidate__WEBPACK_IMPORTED_MODULE_3___default.a);

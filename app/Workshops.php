@@ -24,4 +24,12 @@ class Workshops extends Model
     public function employees(){
         return $this->hasMany('App\Employees', 'workshopID', 'workshopID');
     }
+
+    public function bids(){
+        return $this->hasMany('App\Bids', 'workshopID','workshopID');
+    }
+
+    public function services(){
+        return $this->hasMany('App\Services', 'workshopID','workshopID');
+    }
 }

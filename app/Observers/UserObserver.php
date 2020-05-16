@@ -3,7 +3,9 @@
 namespace App\Observers;
 
 use App\Employees;
+use App\GoodsCategories;
 use App\Roles;
+use App\ServiceCategories;
 use App\User;
 use App\Workshops;
 
@@ -39,6 +41,18 @@ class UserObserver
             'roleID'=> $role->roleID
         ]);
         $employee->save();
+
+        $emptyServiceCategory = new ServiceCategories([
+            'workshopID'=>$workshop->workshopID,
+            'name'=> ServiceCategories::emptyCategory
+        ]);
+        $emptyServiceCategory->save();
+
+        $emptyGoodsCategory = new GoodsCategories([
+            'workshopID'=> $workshop->workshopID,
+            'name'=> GoodsCategories::emptyCategory
+        ]);
+        $emptyGoodsCategory->save();
     }
 
     /**

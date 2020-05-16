@@ -5,12 +5,6 @@
         {{ index }}: {{ data }}
       </div>
     </v-card>
-
-    <v-card>
-      <div v-for="(data, index) in userInfo.workshop" :key="index">
-        {{ index }}: {{ data }}
-      </div>
-    </v-card>
   </div>
 </template>
 
@@ -21,7 +15,7 @@ export default {
     userInfo: {},
   }),
   created() {
-    this.$http.get(`${this.$host}/user`).then((res)=>{
+    this.$http.get(`${this.$host}/settings`).then((res)=>{
       this.userInfo = res.data;
     });
   },
