@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,4 +32,8 @@ Route::group([
 ],function () {
     Route::get('/dashboard', 'Api\Crm\DashboardController@index');
     Route::get('/settings', 'Api\Crm\SettingsController@index');
+
+    Route::group(['prefix' => 'analytics'], function () {
+        Route::get('/bids', 'Api\Crm\AnalyticsController@bids');
+    });
 });

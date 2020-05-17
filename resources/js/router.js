@@ -4,12 +4,18 @@ import Services from './components/Crm/Services';
 import Employees from './components/Crm/Employees';
 import Goods from './components/Crm/Goods';
 import Schedule from './components/Crm/Schedule';
+import Bids from './components/Crm/Bids';
 
 const router = [
   {
     path: '/crm/dashboard',
     component: Dashboard,
     meta: { title: 'Дашборд', mdi: 'mdi-home' },
+  },
+  {
+    path: '/crm/bids',
+    component: Bids,
+    meta: { title: 'Заявки', mdi: 'mdi-bell-ring' },
   },
   {
     path: '/crm/schedule',

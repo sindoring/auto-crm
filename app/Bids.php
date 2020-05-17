@@ -14,7 +14,7 @@ class Bids extends Model
     const READY = 'Готово';
 
     protected $primaryKey = 'bidID';
-    protected $fillable = ['clientID', 'serviceID', 'employeeID', 'carID', 'datetime', 'duration', 'type', 'comment'];
+    protected $fillable = ['clientID', 'workshopID', 'serviceID', 'employeeID', 'carID', 'datetime', 'duration', 'type', 'comment'];
     protected $hidden = ['updated_at', 'created_at'];
 
     public function client(){

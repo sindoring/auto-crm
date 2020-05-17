@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Api\Crm;
 
+use App\Bids;
+use App\Http\Analythics\BidsAnalythics;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class DashboardController extends Controller{
 
@@ -14,9 +17,14 @@ class DashboardController extends Controller{
             $userWorkshop = $user->workshop;
 
             $result = [
-                  'name'=> $user->name != '' ? $user->name : "Пользователь #$user->userID",
-                  'workshopName' => $userWorkshop->name != '' ? $userWorkshop->name : "Мастерская #$userWorkshop->workshopID",
-                  'roleName'=> $user->role->name
+                  'user'=>[
+                        'name'=> $user->name != '' ? $user->name : "Пользователь #$user->userID",
+                        'role'=> $user->role->name,
+                  ],
+                  'workshop'=>[
+                        'name' => $userWorkshop->name != '' ? $userWorkshop->name : "Мастерская #$userWorkshop->workshopID",
+                        'address' => $userWorkshop->address != '' ? $userWorkshop->address : 'Введите адрес в настройках'
+                  ]
             ];
 
             return response()->json($result);
