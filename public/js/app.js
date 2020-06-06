@@ -76129,9 +76129,9 @@ var opts = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\OpenServer\domains\auto-crm-project\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\OpenServer\domains\auto-crm-project\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\OpenServer\domains\auto-crm-project\resources\sass\landing.scss */"./resources/sass/landing.scss");
+__webpack_require__(/*! C:\OpenServer\domains\crm-auto\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\OpenServer\domains\crm-auto\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\OpenServer\domains\crm-auto\resources\sass\landing.scss */"./resources/sass/landing.scss");
 
 
 /***/ })

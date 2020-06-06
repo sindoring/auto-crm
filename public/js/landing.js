@@ -61034,7 +61034,7 @@ var opts = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\OpenServer\domains\auto-crm-project\resources\js\landing.js */"./resources/js/landing.js");
+module.exports = __webpack_require__(/*! C:\OpenServer\domains\crm-auto\resources\js\landing.js */"./resources/js/landing.js");
 
 
 /***/ })
