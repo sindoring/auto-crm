@@ -11,4 +11,8 @@ class ServiceCategories extends Model
     protected $primaryKey = 'serviceCategoryID';
     protected $fillable  = ['name', 'workshopID'];
     protected $hidden = ['updated_at', 'created_at'];
+
+    public function services(){
+        return $this->hasMany('App\Services','categoryID','serviceCategoryID');
+    }
 }

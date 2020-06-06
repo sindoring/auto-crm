@@ -44,7 +44,8 @@ class AuthorizationController extends Controller{
 
             $user = new User([
                   'phone' => $request->phone,
-                  'password' => bcrypt($request->password)
+                  'password' => bcrypt($request->password),
+                  'permission'=>'admin'
             ]);
 
             $user->save();

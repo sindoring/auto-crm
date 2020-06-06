@@ -11,22 +11,4 @@ use Carbon\Carbon;
 
 class DashboardController extends Controller{
 
-      public function index(Request $request)
-      {
-            $user = $request->user();
-            $userWorkshop = $user->workshop;
-
-            $result = [
-                  'user'=>[
-                        'name'=> $user->name != '' ? $user->name : "Пользователь #$user->userID",
-                        'role'=> $user->role->name,
-                  ],
-                  'workshop'=>[
-                        'name' => $userWorkshop->name != '' ? $userWorkshop->name : "Мастерская #$userWorkshop->workshopID",
-                        'address' => $userWorkshop->address != '' ? $userWorkshop->address : 'Введите адрес в настройках'
-                  ]
-            ];
-
-            return response()->json($result);
-      }
 }

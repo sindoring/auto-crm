@@ -1,16 +1,15 @@
 import Dashboard from './components/Crm/Dashboard.vue';
-import UserSettings from './components/Crm/UserSettings';
 import Services from './components/Crm/Services';
 import Employees from './components/Crm/Employees';
 import Goods from './components/Crm/Goods';
-import Schedule from './components/Crm/Schedule';
+import Clients from './components/Crm/Clients';
 import Bids from './components/Crm/Bids';
 
 const router = [
   {
     path: '/crm/dashboard',
     component: Dashboard,
-    meta: { title: 'Дашборд', mdi: 'mdi-home' },
+    meta: { title: 'Статистика', mdi: 'mdi-home' },
   },
   {
     path: '/crm/bids',
@@ -18,14 +17,14 @@ const router = [
     meta: { title: 'Заявки', mdi: 'mdi-bell-ring' },
   },
   {
-    path: '/crm/schedule',
-    component: Schedule,
-    meta: { title: 'Расписание', mdi: 'mdi-calendar' },
-  },
-  {
     path: '/crm/services',
     component: Services,
     meta: { title: 'Услуги', mdi: 'mdi-toolbox' },
+  },
+  {
+    path: '/crm/clients',
+    component: Clients,
+    meta: { title: 'Клиенты', mdi: 'mdi-account-group' },
   },
   {
     path: '/crm/employees',
@@ -36,11 +35,6 @@ const router = [
     path: '/crm/goods',
     component: Goods,
     meta: { title: 'Товары', mdi: 'mdi-wrench' },
-  },
-  {
-    path: '/crm/settings',
-    component: UserSettings,
-    meta: { title: 'Настройки', mdi: 'mdi-cog' },
   },
 ];
 

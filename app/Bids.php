@@ -9,9 +9,9 @@ class Bids extends Model
     /**
      * Константы состояния заявки
      */
-    const NOT_READY = 'Не готово';
-    const IN_PROGRESS = 'В работе';
-    const READY = 'Готово';
+    const DENIED = 'denied';
+    const IN_PROGRESS = 'progress';
+    const READY = 'ready';
 
     protected $primaryKey = 'bidID';
     protected $fillable = ['clientID', 'workshopID', 'serviceID', 'employeeID', 'carID', 'datetime', 'duration', 'type', 'comment'];

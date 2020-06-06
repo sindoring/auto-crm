@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Console\Commands\AddAdmin;
+use App\Console\Commands\CarsImport;
 use App\Console\Commands\Refresh;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,7 +16,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Refresh::class
+        Refresh::class,
+        CarsImport::class,
+        AddAdmin::class
     ];
 
     /**

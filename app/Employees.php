@@ -25,4 +25,8 @@ class Employees extends Model
     public function role(){
         return $this->hasOne('\App\Roles', 'roleID', 'roleID');
     }
+
+    public function bids(){
+        return $this->hasMany('\App\Bids','employeeID','employeeID');
+    }
 }

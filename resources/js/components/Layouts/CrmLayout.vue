@@ -7,6 +7,13 @@
         <v-app-bar-nav-icon @click="drawer = true" />
 
         <v-toolbar-title>{{ title }}</v-toolbar-title>
+        <v-spacer />
+        <form action="/logout" method="POST">
+          <crfs-token-input />
+          <v-btn type="submit">
+            Выход
+          </v-btn>
+        </form>
       </v-app-bar>
 
       <v-navigation-drawer
@@ -40,20 +47,36 @@
 </template>
 
 <script>
+import CrfsTokenInput from '../Landing/CrfsTokenInput';
+
 export default {
   name: 'CrmLayout',
+  components: { CrfsTokenInput },
   data: ()=>({
     drawer: false,
     routes: [],
     title: 'Дашборд',
+    userPermission: '',
   }),
-  created() {
+  async created() {
+    this.userPermission = this.$permission;
+
     this.$router.options.routes.forEach((route) => {
-      this.routes.push({
-        name: route.meta.title,
-        mdi: route.meta.mdi,
-        path: route.path,
-      });
+      if (this.userPermission=='admin') {
+        this.routes.push({
+          name: route.meta.title,
+          mdi: route.meta.mdi,
+          path: route.path,
+        });
+      } else {
+        if (route.path == '/crm/bids') {
+          this.routes.push({
+            name: route.meta.title,
+            mdi: route.meta.mdi,
+            path: route.path,
+          });
+        }
+      }
     });
   },
   methods: {

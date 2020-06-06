@@ -37,6 +37,7 @@ class LoginController extends Controller
         $this->validateLogin($request);
         
         $credentials = request(['phone', 'password']);
+
         
         if(!Auth::attempt($credentials)){
             return redirect('login');
@@ -47,7 +48,9 @@ class LoginController extends Controller
         $token = $tokenResult->token;
         $token->save();
         
-
+        if($user->permission!='admin'){
+            return redirect('/crm/bids');
+        }
         return redirect('/crm/dashboard');
     }
 

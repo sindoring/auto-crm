@@ -21,6 +21,7 @@
     </div>
     <script>
         window.localStorage.setItem('apiKey', {!! json_encode($accessToken ?? '') !!} );
+        window.localStorage.setItem('permission', {!! json_encode($permission ?? '') !!} );
     </script>
 </body>
 </html>

@@ -19,7 +19,9 @@ class UserObserver
      */
     public function created(User $user)
     {
-        $this->makeOwnerAndWorkshop($user);   
+        if($user->permission === 'admin'){
+            $this->makeOwnerAndWorkshop($user); 
+        }  
     }
 
     private function makeOwnerAndWorkshop(User $user){

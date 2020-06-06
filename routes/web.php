@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('layouts.welcome');
+    if(Auth::user()!=null){
+        if(Auth::user()->permission!='admin'){
+            return redirect()->to('crm/bids');
+        }
+        return redirect()->to('crm/dashboard');
+    }
+    return view('auth.login');
 })->name('landing');
 
 Route::get('/crm', 'HomeController@index')->name('crm');

@@ -33,4 +33,20 @@ class Workshops extends Model
     public function services(){
         return $this->hasMany('App\Services', 'workshopID','workshopID');
     }
+
+    public function goods(){
+        return $this->hasMany('App\Goods', 'workshopID','workshopID');
+    }
+
+    public function serviceCategories(){
+        return $this->hasMany('App\ServiceCategories','workshopID','workshopID');
+    }
+
+    public function goodsCategories(){
+        return $this->hasMany('App\GoodsCategories','workshopID','workshopID');
+    }
+
+    public function clients(){
+        return $this->hasMany('App\Clients','workshopID','workshopID');
+    }
 }

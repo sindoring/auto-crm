@@ -12,6 +12,7 @@ import apiKey from '../plugins/apiKey';
 const apiHost = `http://${window.location.hostname}/api`;
 Vue.prototype.$http = Axios;
 Vue.prototype.$host = apiHost;
+Vue.prototype.$permission = window.localStorage.getItem('permission');
 
 Vue.prototype.$http.defaults.headers.common['Authorization'] = `Bearer ${apiKey}`;
 
@@ -23,6 +24,7 @@ Vue.use(VuetifyToast, {
   y: 'top',
 });
 
+Vue.component('login-layout', require('./components/Layouts/LoginLayout.vue').default);
 Vue.component('crm-layout', require('./components/Layouts/CrmLayout').default);
 
 const router = new VueRouter({

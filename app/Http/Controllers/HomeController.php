@@ -28,7 +28,8 @@ class HomeController extends Controller
         $accessToken = $this->token($request->user());
         
         return view('layouts.app')->with([
-            'accessToken'=>$accessToken
+            'accessToken'=>$accessToken,
+            'permission'=>$request->user()->permission
         ]);
     }
 
