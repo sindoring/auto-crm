@@ -20,7 +20,7 @@
 - не забыть указать путь к папке public как к корневому каталогу на стороне веб-сервера
 - в .env заполнить данные о базе данных: название, логин и параль (DB_DATABASE, DB_USERNAME, DB_PASSWORD)
 - php artisan key:generate
-- php artisan cars:import '/cars.csv'
+- php artisan cars:import '/cars.csv' 1000
 - php artisan admin:add '+7 (ХХХ) ХХХ-ХХ-ХХ' 'Ваш пароль' //Команда для добавления администратора, где X - цифры номера
 - номер вводить в соответствии маске выше
 - npm run dev
